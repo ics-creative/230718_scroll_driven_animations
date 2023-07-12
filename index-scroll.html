@@ -19,9 +19,10 @@
       background-image: repeating-linear-gradient(#eff3f6, #eff3f6 20px, #e1e9ef 20px, #e1e9ef 40px);
     }
 
+    /* 垂直方向にスケールを変えるアニメーション */
     @keyframes grow-progress {
       from {
-        scale: 100% 0; /* Y方向のスケールを変える */
+        scale: 100% 0;
       }
     }
 
@@ -37,7 +38,7 @@
 
       /* スクロールアニメーションの設定 */
       animation: grow-progress linear; /* アニメーションを指定。イージングはlinear */
-      animation-timeline: scroll(); /* スクロールコンテナー全体のスクロール進捗状況をタイムラインに */
+      animation-timeline: scroll(); /* スクロールコンテナー全体のスクロール進捗量をタイムラインに */
     }
 
     /* ------------ アレンジバージョン ------------ */
