@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scroll Progress Timelineのデモ</title>
+  <link rel="stylesheet" href="./style/base.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skeleton {
+      height: 100vh;
+      width: 70vw;
+      background-image: repeating-linear-gradient(#eff3f6, #eff3f6 20px, #e1e9ef 20px, #e1e9ef 40px);
+      opacity: 0.5;
+    }
+
+    /* 円→（角丸四角形を経由）→正方形 にマスクの形状を変化させるキーフレーム */
+    @keyframes reveal-image {
+      from {
+        clip-path: inset(30% round 20%);
+      }
+      to {
+        clip-path: inset(0);
+      }
+    }
+
+    .animationElement {
+      width: 300px;
+      height: 300px;
+      animation: reveal-image linear both;
+      animation-timeline: view();
+      animation-range: contain 0% contain 50%;
+      /* ↑ https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=contain&range-start-percentage=0&range-end-name=contain&range-end-percentage=50&view-timeline-axis=block&view-timeline-inset=0&subject-size=smaller&subject-animation=scale-up&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes */
+    }
+  </style>
+</head>
+
+<body>
+<p class="announceText">↓スクロールしてください</p>
+<div class="skeleton">スクロールを発生させるため適当なエリアを確保しています</div>
+<img class="animationElement" src="./images/sapphire.webp" alt="サファイア" width="300" height="300">
+<div class="skeleton">スクロールを発生させるため適当なエリアを確保しています</div>
+
+<nav class="navigation">
+  <ul>
+    <li><span>■</span><a href="./index-scroll.html">Scroll Progress Timelineのデモ</a></li>
+    <li class="navigation_currentPage"><span>■</span>View Progress Timelineのデモ</li>
+    <li><span>■</span><a href="./index.html">2種類のタイムラインを応用した作例ページへ</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

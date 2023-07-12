@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+}
+
+.announceText {
+  color: #222;
+  font-size: 1.5rem;
+}
+
+/* ナビゲーションのスタイル */
+.navigation {
+  margin: 50px;
+}
+
+.navigation ul {
+  list-style: none;
+  color: #aac;
+}
+
+.navigation li {
+  margin-bottom: 12px;
+}
+
+.navigation a {
+  color: royalblue;
+  text-underline-offset: 4px;
+}
+
+.navigation a:visited {
+  color: #7050ff;
+}
+
+.navigation span {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.navigation_currentPage {
+  color: #222;
+}

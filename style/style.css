@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+p {
+  line-height: 2;
+}
+
+/* ------------ 雫💧 ------------ */
+.drop {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  background: white;
+  clip-path: path("m58,70.879c0,16.083-12.984,29.121-29,29.121S0,86.962,0,70.879,29,0,29,0c0,0,29,54.797,29,70.879Z");
+}
+
+.drop_inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: royalblue;
+  transform-origin: bottom; /* 下部を変形の基準にする */
+  animation: grow-progress linear;
+  animation-timeline: scroll();
+}
+
+@keyframes grow-progress {
+  from {
+    scale: 100% 0; /* Y方向のスケールを変える */
+  }
+}
+
+/* ------------ ヒーローエリア ------------ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-color: #d0e4f8;
+}
+
+.hero_title {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.hero_layer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+}
+
+.hero_layer__back {
+  bottom: 0;
+  height: 30vh;
+  background-image: url("../images/back.svg");
+  animation: parallax-image both;
+  animation-timeline: view();
+  animation-range: contain 0% exit 100%;
+}
+
+/* 画像が足りない分を書き足し */
+.hero_layer__back::after {
+  content: "";
+  position: absolute;
+  bottom: -20vh;
+  width: 100%;
+  height: 20vh;
+  background-color: #69eaca;
+}
+
+@keyframes parallax-image {
+  from {
+    translate: 0 -15vh;
+  }
+}
+
+.hero_layer__front {
+  bottom: -25vh;
+  height: 40vh;
+  background-image: url("../images/front.svg");
+  animation: parallax-image-front both;
+  animation-timeline: view();
+  animation-range: contain 0% exit 100%;
+}
+
+@keyframes parallax-image-front {
+  to {
+    translate: 0 -5vh;
+  }
+}
+
+/* ------------------------ */
+.wrapper {
+  background-color: #41cca4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionNormal {
+  padding: 300px 0;
+}
+
+.sectionNormal p {
+  margin-bottom: 40px;
+}
+
+/* ------------ sticky & 横移動 & clip-path ------------ */
+.sectionPin {
+  width: 100%;
+  height: 200vh; /* スクロール長め */
+  overflow: visible;
+}
+
+.pin_text {
+  width: calc(50vw - 100px);
+}
+
+.pin_sticky {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#83a2cb, #D4E7F4);
+
+  view-timeline: --sticky-timeline;
+}
+
+.pin_wrapper {
+  display: flex;
+  gap: 100px;
+  flex-direction: row;
+  align-items: center;
+  width: 200vmax;
+  height: 100%;
+  overflow-x: hidden;
+  will-change: transform;
+
+  animation: slide-image linear both;
+  animation-timeline: view();
+  animation-range: contain; /* = contain 0% contain 100% */
+}
+
+@keyframes slide-image {
+  from {
+    translate: 50vw 0;
+  }
+  to {
+    translate: -550px 0;
+  }
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  animation: reveal-gem linear both;
+  animation-timeline: --sticky-timeline;
+  animation-range: contain 55% contain 70%;
+}
+
+@keyframes reveal-gem {
+  from {
+    clip-path: inset(30% round 20%);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+/* sticky中の「縦」のスクロール量で判定 */
+.image__2 {
+  animation-range: contain 65% contain 80%;
+}
+
+.image__3 {
+  animation-range: contain 75% contain 90%;
+}
+
+/* ------------ 雫のパララックス ------------ */
+.sectionDrop {
+  position: relative;
+  background-color: #D4E7F4;
+  width: 100%;
+}
+
+.sectionDrop_textWrapper p {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+
+.dropGem {
+  position: absolute;
+  width: 88px;
+  height: 124px;
+  background-image: url("../images/drop-blue-01.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: parallax-drop linear both;
+  animation-timeline: view();
+  animation-range: cover; /* = cover 0% cover 100% */
+}
+
+@keyframes parallax-drop {
+  from {
+    translate: 0 180px;
+  }
+  to {
+    translate: 0 -180px;
+  }
+}
+
+.dropGem__blue2 {
+  background-image: url("../images/drop-blue-02.webp");
+}
+
+.dropGem__blue3 {
+  background-image: url("../images/drop-blue-03.webp");
+}
+
+.dropGem__medium {
+  scale: 0.8;
+  animation-range: entry -200% exit 300%; /* 開始終了位置をオーバーにして、動く量を少なく見せています。移動量を調整した別の@keyframesを作って使用する方法も○です */
+}
+
+.dropGem__small {
+  scale: 0.6;
+  animation-range: entry -700% exit 800%;
+}
+
+.dropGem__1 {
+  top: 20%;
+  left: 15%;
+}
+
+.dropGem__2 {
+  bottom: 20%;
+  left: 10%;
+}
+
+.dropGem__3 {
+  top: 15%;
+  right: 20%;
+}
+
+.dropGem__4 {
+  top: 50%;
+  right: 15%;
+}
+
+.dropGem__5 {
+  bottom: 15%;
+  right: 25%;
+}
+
+/* ------------ 空: sticky & clip-path ------------ */
+.sectionSky {
+  position: relative;
+  width: 100%;
+  height: 170vh;
+  background-color: #D4E7F4;
+}
+
+@keyframes reveal-sky {
+  from {
+    clip-path: ellipse(60px 80px);
+  }
+  to {
+    clip-path: ellipse(60% 140%);
+  }
+}
+
+.sky_image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: sticky;
+  top: 0;
+  animation: linear reveal-sky both;
+  animation-timeline: view();
+  animation-range: contain 0% contain 70%;
+  /* ↑ https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=contain&range-start-percentage=0&range-end-name=contain&range-end-percentage=70&view-timeline-axis=block&view-timeline-inset=0&subject-size=taller&subject-animation=scale-up&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes */
+}
+
+.sky_text {
+  position: relative;
+  background-color: white;
+  line-height: 2;
+  max-width: 23rem;
+  padding: 1rem 2rem;
+  margin-left: 80px;
+}
