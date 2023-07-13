@@ -13,7 +13,7 @@
     }
 
     .skeleton {
-      height: 100vh;
+      height: 100vh; /* スクロールが発生するよう適当な高さを確保 */
       width: 70vw;
       background-image: repeating-linear-gradient(#eff3f6, #eff3f6 20px, #e1e9ef 20px, #e1e9ef 40px);
       opacity: 0.5;
@@ -30,13 +30,10 @@
     }
 
     .animationElement {
-      width: 300px;
-      height: 300px;
-
       /* スクロールアニメーションの設定 */
-      animation: reveal-image linear both;
+      animation: reveal-image linear both; /* アニメーションを指定。イージングはlinear。animation-fill-modeはboth */
       animation-timeline: view();
-      animation-range: contain 0% contain 50%;
+      animation-range: contain 0% contain 50%; /* 開始: 要素がビューポートに完全に入った時、終了: ビューポートの真ん中 */
       /* ↑ https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=contain&range-start-percentage=0&range-end-name=contain&range-end-percentage=50&view-timeline-axis=block&view-timeline-inset=0&subject-size=smaller&subject-animation=scale-up&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes */
     }
   </style>
