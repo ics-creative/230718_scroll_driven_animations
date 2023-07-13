@@ -36,9 +36,13 @@ p {
   animation-timeline: scroll();
 }
 
+/* 垂直方向にスケールを変えるアニメーション */
 @keyframes grow-progress {
   from {
-    scale: 100% 0; /* Y方向のスケールを変える */
+    scale: 1 0;
+  }
+  to {
+    scale: 1 1;
   }
 }
 
