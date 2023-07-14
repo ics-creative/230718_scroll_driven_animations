@@ -59,7 +59,7 @@ p {
   width: 100%;
   font-size: 3rem;
   text-align: center;
-  animation: scale-down both;
+  animation: scale-down linear both;
   animation-timeline: view();
   animation-range: contain 70% contain 100%;
 }
@@ -83,7 +83,7 @@ p {
   bottom: 0;
   height: 30vh;
   background-image: url("../images/back.svg");
-  animation: parallax-image both;
+  animation: parallax-image linear both;
   animation-timeline: view();
   animation-range: contain 0% exit 100%;
 }
@@ -108,7 +108,7 @@ p {
   bottom: -20vh;
   height: 40vh;
   background-image: url("../images/front.svg");
-  animation: parallax-image-front both;
+  animation: parallax-image-front linear both;
   animation-timeline: view();
   animation-range: contain 0% exit 100%;
 }
@@ -376,7 +376,7 @@ p {
   object-fit: cover;
   position: sticky;
   top: 0;
-  animation: linear reveal-sky both;
+  animation: reveal-sky linear both;
   animation-timeline: view();
   animation-range: contain 0% contain 70%;
   /* ↑ https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=contain&range-start-percentage=0&range-end-name=contain&range-end-percentage=70&view-timeline-axis=block&view-timeline-inset=0&subject-size=taller&subject-animation=scale-up&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes */
