@@ -38,3 +38,14 @@ body {
 .navigation_currentPage {
   color: #222;
 }
+
+.mobileAlert {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobileAlert {
+    display: block;
+    color: #ff2255;
+    margin-bottom: 32px;
+  }
+}
